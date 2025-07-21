@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>PenguinSam&#39;s world</title>
+  
+  
+  <link href="http://samguo0717.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://samguo0717.github.io/"/>
+  <updated>2025-07-21T21:54:59.569Z</updated>
+  <id>http://samguo0717.github.io/</id>
+  
+  <author>
+    <name>Sam Kaku</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://samguo0717.github.io/2025/07/21/hello-world/"/>
+    <id>http://samguo0717.github.io/2025/07/21/hello-world/</id>
+    <published>2025-07-21T21:54:59.569Z</published>
+    <updated>2025-07-21T21:54:59.569Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>About Linux</title>
+    <link href="http://samguo0717.github.io/2025/07/21/Linux/"/>
+    <id>http://samguo0717.github.io/2025/07/21/Linux/</id>
+    <published>2025-07-21T07:29:47.000Z</published>
+    <updated>2025-07-21T22:31:47.838Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Vim-常用命令参考"><a href="#Vim-常用命令参考" class="headerlink" title="Vim 常用命令参考"></a>Vim 常用命令参考</h1><h2 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>i</code></td><td>进入插入模式（当前位置）</td></tr><tr><td><code>I</code></td><td>进入插入模式（行首）</td></tr><tr><td><code>a</code></td><td>进入插入模式（当前位置后）</td></tr><tr><td><code>A</code></td><td>进入插入模式（行尾）</td></tr><tr><td><code>o</code></td><td>新建下一行并进入插入模式</td></tr><tr><td><code>O</code></td><td>新建上一行并进入插入模式</td></tr><tr><td><code>Esc</code></td><td>退出插入模式到普通模式</td></tr><tr><td><code>:</code></td><td>进入命令模式</td></tr><tr><td><code>v</code></td><td>进入可视模式</td></tr><tr><td><code>V</code></td><td>进入行可视模式</td></tr></tbody></table><h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>h</code></td><td>左移</td></tr><tr><td><code>j</code></td><td>下移</td></tr><tr><td><code>k</code></td><td>上移</td></tr><tr><td><code>l</code></td><td>右移</td></tr><tr><td><code>w</code></td><td>下一个单词开头</td></tr><tr><td><code>b</code></td><td>上一个单词开头</td></tr><tr><td><code>e</code></td><td>单词结尾</td></tr><tr><td><code>0</code></td><td>行首</td></tr><tr><td><code>$</code></td><td>行尾</td></tr><tr><td><code>gg</code></td><td>文件开头</td></tr><tr><td><code>G</code></td><td>文件结尾</td></tr><tr><td><code>Ctrl+f</code></td><td>向下翻页</td></tr><tr><td><code>Ctrl+b</code></td><td>向上翻页</td></tr></tbody></table><h2 id="编辑操作"><a href="#编辑操作" class="headerlink" title="编辑操作"></a>编辑操作</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>x</code></td><td>删除当前字符</td></tr><tr><td><code>dd</code></td><td>删除当前行</td></tr><tr><td><code>yy</code></td><td>复制当前行</td></tr><tr><td><code>p</code></td><td>粘贴到下方</td></tr><tr><td><code>P</code></td><td>粘贴到上方</td></tr><tr><td><code>u</code></td><td>撤销</td></tr><tr><td><code>Ctrl+r</code></td><td>重做</td></tr><tr><td><code>dw</code></td><td>删除单词</td></tr><tr><td><code>cw</code></td><td>修改单词</td></tr><tr><td><code>cc</code></td><td>修改整行</td></tr></tbody></table><h2 id="搜索替换"><a href="#搜索替换" class="headerlink" title="搜索替换"></a>搜索替换</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>/text</code></td><td>向下搜索text</td></tr><tr><td><code>?text</code></td><td>向上搜索text</td></tr><tr><td><code>n</code></td><td>下一个匹配</td></tr><tr><td><code>N</code></td><td>上一个匹配</td></tr><tr><td><code>:s/old/new</code></td><td>替换当前行第一个old为new</td></tr><tr><td><code>:s/old/new/g</code></td><td>替换当前行所有old为new</td></tr><tr><td><code>:%s/old/new/g</code></td><td>替换全文所有old为new</td></tr></tbody></table><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>:w</code></td><td>保存</td></tr><tr><td><code>:q</code></td><td>退出</td></tr><tr><td><code>:wq</code></td><td>保存并退出</td></tr><tr><td><code>:q!</code></td><td>强制退出不保存</td></tr><tr><td><code>:w filename</code></td><td>另存为</td></tr><tr><td><code>:e filename</code></td><td>打开文件</td></tr></tbody></table><h2 id="行号与跳转"><a href="#行号与跳转" class="headerlink" title="行号与跳转"></a>行号与跳转</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>:set nu</code></td><td>显示行号</td></tr><tr><td><code>:set nonu</code></td><td>隐藏行号</td></tr><tr><td><code>:n</code></td><td>跳转到第n行</td></tr><tr><td><code>nG</code></td><td>跳转到第n行</td></tr></tbody></table><h2 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>:sp</code></td><td>水平分割窗口</td></tr><tr><td><code>:vsp</code></td><td>垂直分割窗口</td></tr><tr><td><code>Ctrl+w w</code></td><td>切换窗口</td></tr><tr><td><code>Ctrl+w q</code></td><td>关闭当前窗口</td></tr></tbody></table><h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以只读模式打开</span></span><br><span class="line">vim -R filename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件并跳转到指定行</span></span><br><span class="line">vim +n filename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同时编辑多个文件</span></span><br><span class="line">vim file1 file2</span><br><span class="line">:n        <span class="comment"># 下一个文件</span></span><br><span class="line">:prev     <span class="comment"># 上一个文件</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">把不懂的command都扔上来吧</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://samguo0717.github.io/categories/Linux/"/>
+    
+    
+    <category term="linux" scheme="http://samguo0717.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>应该填的坑</title>
+    <link href="http://samguo0717.github.io/2025/07/21/to_do_list/"/>
+    <id>http://samguo0717.github.io/2025/07/21/to_do_list/</id>
+    <published>2025-07-21T07:00:00.000Z</published>
+    <updated>2025-07-21T22:35:15.637Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="刚面完了meta知道该刷leetcode啦！！！！"><a href="#刚面完了meta知道该刷leetcode啦！！！！" class="headerlink" title="刚面完了meta知道该刷leetcode啦！！！！"></a>刚面完了meta知道该刷leetcode啦！！！！</h2><h3 id="I-这里留给刷过的leetcode和解题思路展示"><a href="#I-这里留给刷过的leetcode和解题思路展示" class="headerlink" title="I.这里留给刷过的leetcode和解题思路展示"></a>I.这里留给刷过的leetcode和解题思路展示</h3><p>1.anagram - array &#x2F; hash table &#x2F; string &#x2F; sorting<br><a href="https://leetcode.com/problems/group-anagrams/description/">如何从一堆数中找到anagram</a></p><table><thead><tr><th>题号</th><th>名称</th><th>难度</th><th>模式</th><th>技巧</th></tr></thead><tbody><tr><td>49</td><td>Group Anagrams</td><td>Medium</td><td>多字符串列表</td><td>sort &#x2F; hash by frequency</td></tr><tr><td>438</td><td>Find All Anagrams in a String</td><td>Medium</td><td>字符串滑窗</td><td>滑动窗口 + frequency map</td></tr></tbody></table><p>2.simplify path - string &#x2F; stack<br><a href="https://leetcode.com/problems/simplify-path/">处理path</a><br>*这里可以拓展成模仿cd处理def cd(cwd,pwd)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">cd_resolve</span>(<span class="params">cwd: <span class="built_in">str</span>, path: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="comment"># 将 cwd 拆分推入栈（忽略空和 &#x27;.&#x27;，处理父级 &#x27;..&#x27;）</span></span><br><span class="line">    stack = []</span><br><span class="line">    <span class="keyword">for</span> part <span class="keyword">in</span> cwd.split(<span class="string">&#x27;/&#x27;</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> part <span class="keyword">or</span> part == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">if</span> part == <span class="string">&#x27;..&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> stack:</span><br><span class="line">                stack.pop()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            stack.append(part)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 处理 path 参数</span></span><br><span class="line">    <span class="keyword">if</span> path.startswith(<span class="string">&#x27;/&#x27;</span>):</span><br><span class="line">        stack = []</span><br><span class="line">    <span class="keyword">for</span> part <span class="keyword">in</span> path.split(<span class="string">&#x27;/&#x27;</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> part <span class="keyword">or</span> part == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">if</span> part == <span class="string">&#x27;..&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> stack:</span><br><span class="line">                stack.pop()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            stack.append(part)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;/&#x27;</span> + <span class="string">&#x27;/&#x27;</span>.join(stack)</span><br><span class="line"></span><br></pre></td></tr></table></figure><table><thead><tr><th>题号</th><th>题目名称</th><th>难度</th><th>技术点 &#x2F; 考察内容</th></tr></thead><tbody><tr><td>71（变体）</td><td>Simplify Path + 当前目录支持</td><td>Medium</td><td><strong>栈</strong>：处理 <code>cwd</code> 初始化 + 相对&#x2F;绝对路径入栈与出栈。模拟 <code>cd cwd path</code>，主考栈操作。</td></tr><tr><td>588</td><td>Design In-Memory File System</td><td>Hard</td><td><strong>Trie &#x2F; 树 + 栈</strong>：模拟 <code>ls</code>、<code>mkdir</code>、<code>addContentToFile</code>、<code>readContentFromFile</code>，目录树遍历和路径拆分</td></tr><tr><td>(进一步延伸)</td><td>Shell 命令完整模拟</td><td>Hard+</td><td>多功能支持：<code>cd</code>、<code>ls</code>、<code>pwd</code>、符号链、环境变量。可在 588 基础上扩展，涉及更复杂的数据结构。</td></tr></tbody></table><h3 id="II-这里留给需要增加的安全知识点"><a href="#II-这里留给需要增加的安全知识点" class="headerlink" title="II.这里留给需要增加的安全知识点"></a>II.这里留给需要增加的安全知识点</h3><h4 id="SQL-Injection"><a href="#SQL-Injection" class="headerlink" title="SQL Injection"></a>SQL Injection</h4><h4 id="XSS-注意能绕过的mXSS"><a href="#XSS-注意能绕过的mXSS" class="headerlink" title="XSS - 注意能绕过的mXSS"></a>XSS - 注意能绕过的mXSS</h4><h4 id="CSRF-SSRF"><a href="#CSRF-SSRF" class="headerlink" title="CSRF SSRF"></a>CSRF SSRF</h4><h4 id="其他注入"><a href="#其他注入" class="headerlink" title="其他注入"></a>其他注入</h4><h4 id="安全设计"><a href="#安全设计" class="headerlink" title="安全设计"></a>安全设计</h4><h5 id="比如说一个登录页面"><a href="#比如说一个登录页面" class="headerlink" title="比如说一个登录页面"></a>比如说一个登录页面</h5><h3 id="III-Control-Matrix-部分-先从ASVS看吧"><a href="#III-Control-Matrix-部分-先从ASVS看吧" class="headerlink" title="III.Control Matrix 部分 先从ASVS看吧"></a>III.Control Matrix 部分 先从ASVS看吧</h3><h5 id="A-PLACEHODER-HERE"><a href="#A-PLACEHODER-HERE" class="headerlink" title="A_PLACEHODER_HERE"></a>A_PLACEHODER_HERE</h5>]]></content>
+    
+    
+    <summary type="html">第一篇☝️</summary>
+    
+    
+    
+    <category term="杂谈" scheme="http://samguo0717.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="综述" scheme="http://samguo0717.github.io/tags/%E7%BB%BC%E8%BF%B0/"/>
+    
+    <category term="leetcode" scheme="http://samguo0717.github.io/tags/leetcode/"/>
+    
+    <category term="安全" scheme="http://samguo0717.github.io/tags/%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="碎碎念" scheme="http://samguo0717.github.io/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+  </entry>
+  
+</feed>

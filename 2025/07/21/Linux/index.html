@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"samguo0717.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="把不懂的command都扔上来吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="About Linux">
+<meta property="og:url" content="http://samguo0717.github.io/2025/07/21/Linux/index.html">
+<meta property="og:site_name" content="PenguinSam&#39;s world">
+<meta property="og:description" content="把不懂的command都扔上来吧">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-21T07:29:47.000Z">
+<meta property="article:modified_time" content="2025-07-21T22:31:47.838Z">
+<meta property="article:author" content="Sam Kaku">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://samguo0717.github.io/2025/07/21/Linux/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://samguo0717.github.io/2025/07/21/Linux/","path":"2025/07/21/Linux/","title":"About Linux"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>About Linux | PenguinSam's world</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="PenguinSam's world" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PenguinSam's world</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">Vim 常用命令参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">模式切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.</span> <span class="nav-text">编辑操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.4.</span> <span class="nav-text">搜索替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">1.5.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%8F%B7%E4%B8%8E%E8%B7%B3%E8%BD%AC"><span class="nav-number">1.6.</span> <span class="nav-text">行号与跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E6%93%8D%E4%BD%9C"><span class="nav-number">1.7.</span> <span class="nav-text">窗口操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">1.8.</span> <span class="nav-text">实用技巧</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sam Kaku</p>
+  <div class="site-description" itemprop="description">Product Security Lover and a hacker</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://samguo0717.github.io/2025/07/21/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sam Kaku">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PenguinSam's world">
+      <meta itemprop="description" content="Product Security Lover and a hacker">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="About Linux | PenguinSam's world">
+      <meta itemprop="description" content="把不懂的command都扔上来吧">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          About Linux
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-07-21 15:29:47" itemprop="dateCreated datePublished" datetime="2025-07-21T15:29:47+08:00">2025-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-07-22 06:31:47" itemprop="dateModified" datetime="2025-07-22T06:31:47+08:00">2025-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">把不懂的command都扔上来吧</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Vim-常用命令参考"><a href="#Vim-常用命令参考" class="headerlink" title="Vim 常用命令参考"></a>Vim 常用命令参考</h1><h2 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>i</code></td>
+<td>进入插入模式（当前位置）</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>进入插入模式（行首）</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>进入插入模式（当前位置后）</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>进入插入模式（行尾）</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>新建下一行并进入插入模式</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>新建上一行并进入插入模式</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>退出插入模式到普通模式</td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td>进入命令模式</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td>进入可视模式</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>进入行可视模式</td>
+</tr>
+</tbody></table>
+<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>h</code></td>
+<td>左移</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td>下移</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>上移</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>右移</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>下一个单词开头</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>上一个单词开头</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>单词结尾</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>行首</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>行尾</td>
+</tr>
+<tr>
+<td><code>gg</code></td>
+<td>文件开头</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>文件结尾</td>
+</tr>
+<tr>
+<td><code>Ctrl+f</code></td>
+<td>向下翻页</td>
+</tr>
+<tr>
+<td><code>Ctrl+b</code></td>
+<td>向上翻页</td>
+</tr>
+</tbody></table>
+<h2 id="编辑操作"><a href="#编辑操作" class="headerlink" title="编辑操作"></a>编辑操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>x</code></td>
+<td>删除当前字符</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td><code>yy</code></td>
+<td>复制当前行</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>粘贴到下方</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>粘贴到上方</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>撤销</td>
+</tr>
+<tr>
+<td><code>Ctrl+r</code></td>
+<td>重做</td>
+</tr>
+<tr>
+<td><code>dw</code></td>
+<td>删除单词</td>
+</tr>
+<tr>
+<td><code>cw</code></td>
+<td>修改单词</td>
+</tr>
+<tr>
+<td><code>cc</code></td>
+<td>修改整行</td>
+</tr>
+</tbody></table>
+<h2 id="搜索替换"><a href="#搜索替换" class="headerlink" title="搜索替换"></a>搜索替换</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/text</code></td>
+<td>向下搜索text</td>
+</tr>
+<tr>
+<td><code>?text</code></td>
+<td>向上搜索text</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>下一个匹配</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>上一个匹配</td>
+</tr>
+<tr>
+<td><code>:s/old/new</code></td>
+<td>替换当前行第一个old为new</td>
+</tr>
+<tr>
+<td><code>:s/old/new/g</code></td>
+<td>替换当前行所有old为new</td>
+</tr>
+<tr>
+<td><code>:%s/old/new/g</code></td>
+<td>替换全文所有old为new</td>
+</tr>
+</tbody></table>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:w</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td><code>:q</code></td>
+<td>退出</td>
+</tr>
+<tr>
+<td><code>:wq</code></td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td><code>:q!</code></td>
+<td>强制退出不保存</td>
+</tr>
+<tr>
+<td><code>:w filename</code></td>
+<td>另存为</td>
+</tr>
+<tr>
+<td><code>:e filename</code></td>
+<td>打开文件</td>
+</tr>
+</tbody></table>
+<h2 id="行号与跳转"><a href="#行号与跳转" class="headerlink" title="行号与跳转"></a>行号与跳转</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:set nu</code></td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td><code>:set nonu</code></td>
+<td>隐藏行号</td>
+</tr>
+<tr>
+<td><code>:n</code></td>
+<td>跳转到第n行</td>
+</tr>
+<tr>
+<td><code>nG</code></td>
+<td>跳转到第n行</td>
+</tr>
+</tbody></table>
+<h2 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:sp</code></td>
+<td>水平分割窗口</td>
+</tr>
+<tr>
+<td><code>:vsp</code></td>
+<td>垂直分割窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+w w</code></td>
+<td>切换窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+w q</code></td>
+<td>关闭当前窗口</td>
+</tr>
+</tbody></table>
+<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以只读模式打开</span></span><br><span class="line">vim -R filename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件并跳转到指定行</span></span><br><span class="line">vim +n filename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同时编辑多个文件</span></span><br><span class="line">vim file1 file2</span><br><span class="line">:n        <span class="comment"># 下一个文件</span></span><br><span class="line">:prev     <span class="comment"># 上一个文件</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/07/21/to_do_list/" rel="prev" title="应该填的坑">
+                  <i class="fa fa-angle-left"></i> 应该填的坑
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/07/21/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sam Kaku</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
