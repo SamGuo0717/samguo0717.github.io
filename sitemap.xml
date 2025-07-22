@@ -4,7 +4,7 @@
   <url>
     <loc>http://samguo0717.github.io/2025/07/21/to_do_list/</loc>
     
-    <lastmod>2025-07-21</lastmod>
+    <lastmod>2025-07-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,43 +31,43 @@
 
   <url>
     <loc>http://samguo0717.github.io/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>http://samguo0717.github.io/tags/linux/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://samguo0717.github.io/tags/%E7%BB%BC%E8%BF%B0/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://samguo0717.github.io/tags/leetcode/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://samguo0717.github.io/tags/%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://samguo0717.github.io/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</loc>
-    <lastmod>2025-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://samguo0717.github.io/tags/linux/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -75,15 +75,15 @@
 
   
   <url>
-    <loc>http://samguo0717.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <loc>http://samguo0717.github.io/categories/Linux/</loc>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://samguo0717.github.io/categories/Linux/</loc>
-    <lastmod>2025-07-21</lastmod>
+    <loc>http://samguo0717.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
