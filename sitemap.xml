@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samguo0717.github.io/2025/07/21/code-review-1/</loc>
+    
+    <lastmod>2025-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://samguo0717.github.io/2025/07/21/to_do_list/</loc>
     
     <lastmod>2025-07-22</lastmod>
@@ -45,6 +54,13 @@
   </url>
   
   <url>
+    <loc>http://samguo0717.github.io/tags/%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://samguo0717.github.io/tags/%E7%BB%BC%E8%BF%B0/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -53,13 +69,6 @@
   
   <url>
     <loc>http://samguo0717.github.io/tags/leetcode/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://samguo0717.github.io/tags/%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -76,6 +85,13 @@
   
   <url>
     <loc>http://samguo0717.github.io/categories/Linux/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://samguo0717.github.io/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"samguo0717.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.2","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="code review 101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码审计(1)">
+<meta property="og:url" content="http://samguo0717.github.io/2025/07/21/code-review-1/index.html">
+<meta property="og:site_name" content="PenguinSam&#39;s world">
+<meta property="og:description" content="code review 101">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-21T12:06:20.000Z">
+<meta property="article:modified_time" content="2025-07-22T03:59:52.842Z">
+<meta property="article:author" content="Sam Kaku">
+<meta property="article:tag" content="安全">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://samguo0717.github.io/2025/07/21/code-review-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://samguo0717.github.io/2025/07/21/code-review-1/","path":"2025/07/21/code-review-1/","title":"代码审计(1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>代码审计(1) | PenguinSam's world</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="PenguinSam's world" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">PenguinSam's world</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E9%83%A8%E5%88%86%E6%91%98%E8%87%AAPL"><span class="nav-number">1.</span> <span class="nav-text">PHP代码审计 部分摘自PL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithm-Confusion"><span class="nav-number">1.1.</span> <span class="nav-text">Algorithm Confusion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HS%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">HS算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RS256-to-HS256%E9%99%8D%E7%BA%A7%E6%94%BB%E5%87%BB"><span class="nav-number">1.2.</span> <span class="nav-text">RS256 to HS256降级攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-%E8%8E%B7%E5%8F%96RSA%E5%85%AC%E9%92%A5"><span class="nav-number">1.2.1.</span> <span class="nav-text">A. 获取RSA公钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-%E6%9E%84%E9%80%A0%E6%81%B6%E6%84%8FJWT"><span class="nav-number">1.2.2.</span> <span class="nav-text">B. 构造恶意JWT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-%E4%BD%BF%E7%94%A8%E5%85%AC%E9%92%A5%E4%BD%9C%E4%B8%BAHMAC%E5%AF%86%E9%92%A5%E7%AD%BE%E5%90%8D"><span class="nav-number">1.2.3.</span> <span class="nav-text">C. 使用公钥作为HMAC密钥签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-%E6%94%BB%E5%87%BB%E6%88%90%E5%8A%9F%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.2.4.</span> <span class="nav-text">D. 攻击成功条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#E-%E5%A6%82%E4%BD%95%E9%98%B2%E6%8A%A4"><span class="nav-number">1.2.5.</span> <span class="nav-text">E. 如何防护</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E7%9C%81JSON%E6%A0%BC%E5%BC%8F%E9%AA%8C%E8%AF%81"><span class="nav-number">1.3.</span> <span class="nav-text">缺省JSON格式验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%9D%A5%E6%BA%90%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">输入来源问题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Sam Kaku</p>
+  <div class="site-description" itemprop="description">Product Security Lover and a hacker</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://samguo0717.github.io/2025/07/21/code-review-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Sam Kaku">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PenguinSam's world">
+      <meta itemprop="description" content="Product Security Lover and a hacker">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="代码审计(1) | PenguinSam's world">
+      <meta itemprop="description" content="code review 101">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          代码审计(1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-07-21 20:06:20" itemprop="dateCreated datePublished" datetime="2025-07-21T20:06:20+08:00">2025-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-07-22 11:59:52" itemprop="dateModified" datetime="2025-07-22T11:59:52+08:00">2025-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">代码审计</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">code review 101</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="PHP代码审计-部分摘自PL"><a href="#PHP代码审计-部分摘自PL" class="headerlink" title="PHP代码审计 部分摘自PL"></a>PHP代码审计 部分摘自PL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$parts</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;.&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;jwt&#x27;</span>]);</span><br><span class="line"><span class="variable">$algorithms</span> = <span class="keyword">array</span>(<span class="string">&#x27;HS256&#x27;</span>, <span class="string">&#x27;HS384&#x27;</span>, <span class="string">&#x27;HS512&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="number">3</span> !== <span class="title function_ invoke__">count</span>(<span class="variable">$parts</span>)) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">\InvalidArgumentException</span>(<span class="string">&#x27;Invalid or malformed JWT supplied.&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$header</span> = <span class="title function_ invoke__">json_decode</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">decode</span>(<span class="variable">$parts</span>[<span class="number">0</span>]), <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">in_array</span>(<span class="variable">$header</span>[<span class="string">&#x27;alg&#x27;</span>], <span class="variable">$algorithms</span>)) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Possible Threat Analysis</p>
+</blockquote>
+<h3 id="Algorithm-Confusion"><a href="#Algorithm-Confusion" class="headerlink" title="Algorithm Confusion"></a>Algorithm Confusion</h3><p>攻击者只检查了HS系列算法</p>
+<h4 id="HS算法"><a href="#HS算法" class="headerlink" title="HS算法"></a>HS算法</h4><h3 id="RS256-to-HS256降级攻击"><a href="#RS256-to-HS256降级攻击" class="headerlink" title="RS256 to HS256降级攻击"></a>RS256 to HS256降级攻击</h3><blockquote>
+<p>得同时存在RS256和HS256</p>
+</blockquote>
+<blockquote>
+<p>攻击原理<br>HS256替换RS256以后<br>RS256<br>签名：使用RSA私钥 + SHA256<br>验证：使用RSA公钥 + SHA256<br>HS256<br>签名：使用HMAC + SHA256 + 共享密钥<br>验证：使用HMAC + SHA256 + 相同的共享密钥</p>
+</blockquote>
+<h4 id="A-获取RSA公钥"><a href="#A-获取RSA公钥" class="headerlink" title="A. 获取RSA公钥"></a>A. 获取RSA公钥</h4><p>常见端点:</p>
+<ul>
+<li>&#x2F;.well-known&#x2F;jwks.json</li>
+<li>证书文件</li>
+<li>API文档</li>
+<li>之前的合法JWT Token分析</li>
+</ul>
+<h4 id="B-构造恶意JWT"><a href="#B-构造恶意JWT" class="headerlink" title="B. 构造恶意JWT"></a>B. 构造恶意JWT</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原始合法的RS256 JWT header:</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;RS256&quot;</span>,</span><br><span class="line">  <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 攻击者修改为HS256:</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>, </span><br><span class="line">  <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 恶意payload (攻击者可以任意修改):</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;sub&quot;</span>: <span class="string">&quot;admin&quot;</span>,      <span class="comment">// 提升为管理员</span></span><br><span class="line">  <span class="string">&quot;role&quot;</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line">  <span class="string">&quot;exp&quot;</span>: <span class="number">9999999999</span>    <span class="comment">// 延长过期时间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="C-使用公钥作为HMAC密钥签名"><a href="#C-使用公钥作为HMAC密钥签名" class="headerlink" title="C. 使用公钥作为HMAC密钥签名"></a>C. 使用公钥作为HMAC密钥签名</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 攻击者的签名过程:</span></span><br><span class="line"><span class="variable">$publicKey</span> = <span class="string">&quot;-----BEGIN PUBLIC KEY-----\nMIIBI...&quot;</span>; <span class="comment">// 获得的RSA公钥</span></span><br><span class="line"><span class="variable">$header</span> = <span class="title function_ invoke__">base64url_encode</span>(<span class="string">&#x27;&#123;&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;&#125;&#x27;</span>);</span><br><span class="line"><span class="variable">$payload</span> = <span class="title function_ invoke__">base64url_encode</span>(<span class="string">&#x27;&#123;&quot;sub&quot;:&quot;admin&quot;,&quot;role&quot;:&quot;admin&quot;&#125;&#x27;</span>);</span><br><span class="line"><span class="variable">$signature</span> = <span class="title function_ invoke__">hash_hmac</span>(<span class="string">&#x27;sha256&#x27;</span>, <span class="variable">$header</span>.<span class="string">&#x27;.&#x27;</span>.<span class="variable">$payload</span>, <span class="variable">$publicKey</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="variable">$maliciousJWT</span> = <span class="variable">$header</span>.<span class="string">&#x27;.&#x27;</span>.<span class="variable">$payload</span>.<span class="string">&#x27;.&#x27;</span>.<span class="title function_ invoke__">base64url_encode</span>(<span class="variable">$signature</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>同时服务器端有相关漏洞代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存在漏洞的验证代码:</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">verifyJWT</span>(<span class="params"><span class="variable">$jwt</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$parts</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;.&#x27;</span>, <span class="variable">$jwt</span>);</span><br><span class="line">    <span class="variable">$header</span> = <span class="title function_ invoke__">json_decode</span>(<span class="title function_ invoke__">base64url_decode</span>(<span class="variable">$parts</span>[<span class="number">0</span>]), <span class="literal">true</span>);</span><br><span class="line">    <span class="variable">$payload</span> = <span class="title function_ invoke__">json_decode</span>(<span class="title function_ invoke__">base64url_decode</span>(<span class="variable">$parts</span>[<span class="number">1</span>]), <span class="literal">true</span>);</span><br><span class="line">    <span class="variable">$signature</span> = <span class="title function_ invoke__">base64url_decode</span>(<span class="variable">$parts</span>[<span class="number">2</span>]);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 漏洞: 服务器根据JWT中声明的算法进行验证</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$header</span>[<span class="string">&#x27;alg&#x27;</span>] === <span class="string">&#x27;RS256&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 正常情况: 使用公钥验证RS256签名</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">openssl_verify</span>(<span class="variable">$parts</span>[<span class="number">0</span>].<span class="string">&#x27;.&#x27;</span>.<span class="variable">$parts</span>[<span class="number">1</span>], <span class="variable">$signature</span>, <span class="variable">$publicKey</span>, OPENSSL_ALGO_SHA256);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">elseif</span> (<span class="variable">$header</span>[<span class="string">&#x27;alg&#x27;</span>] === <span class="string">&#x27;HS256&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 漏洞: 如果JWT声明是HS256，服务器用公钥作为HMAC密钥验证</span></span><br><span class="line">        <span class="comment">// 这正是攻击者想要的!</span></span><br><span class="line">        <span class="variable">$expectedSignature</span> = <span class="title function_ invoke__">hash_hmac</span>(<span class="string">&#x27;sha256&#x27;</span>, <span class="variable">$parts</span>[<span class="number">0</span>].<span class="string">&#x27;.&#x27;</span>.<span class="variable">$parts</span>[<span class="number">1</span>], <span class="variable">$publicKey</span>, <span class="literal">true</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">hash_equals</span>(<span class="variable">$signature</span>, <span class="variable">$expectedSignature</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="D-攻击成功条件"><a href="#D-攻击成功条件" class="headerlink" title="D. 攻击成功条件"></a>D. 攻击成功条件</h4><ul>
+<li>服务器信任JWTheader中的算法生命</li>
+<li>同时支持RS256和HS256suanfa</li>
+<li>使用相同的密钥材料进行验证</li>
+<li>攻击者能够获得RSA公钥</li>
+<li>没有严格区分不同算法的密钥管理</li>
+</ul>
+<p>e.g.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 1. 原始合法的RS256 JWT:</span><br><span class="line">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyIiwicm9sZSI6InVzZXIifQ.[RS256_signature]</span><br><span class="line"></span><br><span class="line">// 2. 攻击者构造的HS256 JWT:</span><br><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyIiwicm9sZSI6ImFkbWluIn0.[HS256_signature_using_public_key]</span><br><span class="line"></span><br><span class="line">// 服务器会用公钥验证HS256签名 -&gt; 验证通过!</span><br><span class="line">// 攻击者成功获得admin权限</span><br></pre></td></tr></table></figure>
+<h4 id="E-如何防护"><a href="#E-如何防护" class="headerlink" title="E. 如何防护"></a>E. 如何防护</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 1. 强制指定算法，不信任JWT header</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">verifyJWT</span>(<span class="params"><span class="variable">$jwt</span>, <span class="variable">$expectedAlgorithm</span> = <span class="string">&#x27;RS256&#x27;</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 忽略JWT中声明的算法，使用预设算法</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$expectedAlgorithm</span> !== <span class="string">&#x27;RS256&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Only RS256 allowed&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 强制使用RS256验证...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 算法白名单严格验证</span></span><br><span class="line"><span class="variable">$allowedAlgorithms</span> = [<span class="string">&#x27;RS256&#x27;</span>]; <span class="comment">// 不包含HS256</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="title function_ invoke__">in_array</span>(<span class="variable">$header</span>[<span class="string">&#x27;alg&#x27;</span>], <span class="variable">$allowedAlgorithms</span>, <span class="literal">true</span>)) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&#x27;Algorithm not allowed&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 分离不同算法的密钥</span></span><br><span class="line"><span class="variable">$rsaKeys</span> = [...];    <span class="comment">// RS256专用</span></span><br><span class="line"><span class="variable">$hmacKeys</span> = [...];   <span class="comment">// HS256专用，绝不混用</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="缺省JSON格式验证"><a href="#缺省JSON格式验证" class="headerlink" title="缺省JSON格式验证"></a>缺省JSON格式验证</h3><h3 id="输入来源问题"><a href="#输入来源问题" class="headerlink" title="输入来源问题"></a>输入来源问题</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/07/21/Linux/" rel="prev" title="About Linux">
+                  <i class="fa fa-angle-left"></i> About Linux
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/07/21/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sam Kaku</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
